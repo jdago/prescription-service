@@ -32,8 +32,4 @@ public class InMemoryPrescriptionRepository implements PrescriptionRepository {
     public void deleteByPrescriptionName(String medicationname) {
          prescriptions.remove(medicationname);
     }
-    @Override
-    public Iterable<Prescription> findAllExpiredPrescriptions(){
-        return prescriptions.values();
-    }
 }

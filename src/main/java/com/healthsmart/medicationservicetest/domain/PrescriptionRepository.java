@@ -13,5 +13,4 @@ public interface PrescriptionRepository {
 
     void deleteByPrescriptionName(String medicationname);
 
-    Iterable<Prescription> findAllExpiredPrescriptions();
 }

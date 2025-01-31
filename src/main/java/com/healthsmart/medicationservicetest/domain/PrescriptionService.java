@@ -1,12 +1,7 @@
-package com.healthsmart.medicationservicetest;
+package com.healthsmart.medicationservicetest.domain;
 
-import com.healthsmart.medicationservicetest.domain.Prescription;
-import com.healthsmart.medicationservicetest.domain.PrescriptionAlreadyExistsException;
-import com.healthsmart.medicationservicetest.domain.PrescriptionNotFoundException;
-import com.healthsmart.medicationservicetest.domain.PrescriptionRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
 import java.util.List;
 
 @Service
@@ -27,8 +22,8 @@ public class PrescriptionService {
         return prescriptionRepository.save(prescription);
     }
 
-    public Optional<Prescription> viewPrescriptionByName(String medicationname) {
-        return prescriptionRepository.findByPrescriptionName(medicationname);
+    public Prescription viewPrescriptionDetails(String medicationname) {
+        return prescriptionRepository.findByPrescriptionName(medicationname).orElseThrow(() -> new PrescriptionNotFoundException(medicationname));
     }
 
     public Prescription editPrescriptionDetails(String medicationname, Prescription prescription) {
@@ -63,10 +58,4 @@ public class PrescriptionService {
     public void removePrescriptionFromPatient(String medicationname) {
         prescriptionRepository.deleteByPrescriptionName(medicationname);
     }
-
-    public Iterable<Prescription> viewExpiredPrescriptionList() {
-        return prescriptionRepository.findAllExpiredPrescriptions();
-    }
-
-
 }
