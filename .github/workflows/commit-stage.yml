@@ -2,12 +2,10 @@ name: Commit Stage
 on: 
   push:
     branches:
-      - master
-      - main
+      - sprint1-day1-dago
   pull_request:
     branches:
-      - master
-      - main
+      - sprint1-day1-dago
 
 jobs:
   build:
