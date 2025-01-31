@@ -4,8 +4,8 @@ import java.time.LocalDate;
 import java.util.List;
 
 public record Prescription (
-    String patientId,
-    String prescriptionId,
+    String patientid,
+    String prescriptionid,
     String medicationname,
     String medicationclass,
     double dosageinmilligrams,
